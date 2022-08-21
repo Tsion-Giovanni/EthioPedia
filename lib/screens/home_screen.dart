@@ -1,21 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:intro_slider/intro_slider.dart';
-import 'package:./anim_search_bar/anim_search_bar.dart';
-import 'package:final_trial/intro_slider_custom_config.dart';
-import 'package:flutter/src/widgets/preferred_size.dart';
 import 'package:animated_button/animated_button.dart';
-import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'dart:async';
-import 'dart:convert';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:final_trial/screens/quiz_screen.dart';
 import 'package:final_trial/screens/flashcard_screen.dart';
-import 'package:final_trial/screens/home_screen.dart';
-import 'package:final_trial/screens/category_screen.dart';
-import 'package:http/http.dart' as http;
-
+import 'package:final_trial/screens/quiz_screen.dart';
 import 'package:final_trial/screens/searchdeleget.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -30,9 +18,10 @@ class MyHomePageState extends State<MyHomePage> {
   final _advancedDrawerController = AdvancedDrawerController();
 
   TextEditingController textController = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return AdvancedDrawer(
-      backdropColor: Color.fromRGBO(96, 71, 102, 1),
+      backdropColor: const Color.fromRGBO(96, 71, 102, 1),
       controller: _advancedDrawerController,
       animationCurve: Curves.easeInOut,
       animationDuration: const Duration(milliseconds: 300),
@@ -49,7 +38,7 @@ class MyHomePageState extends State<MyHomePage> {
             blurRadius: 0.0,
           ),
         ],
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       // ignore: sort_child_properties_last
       child: Scaffold(
@@ -73,7 +62,7 @@ class MyHomePageState extends State<MyHomePage> {
               valueListenable: _advancedDrawerController,
               builder: (_, value, __) {
                 return AnimatedSwitcher(
-                  duration: Duration(milliseconds: 250),
+                  duration: const Duration(milliseconds: 250),
                   child: Icon(
                     value.visible ? Icons.clear : Icons.menu,
                     key: ValueKey<bool>(value.visible),
@@ -83,7 +72,7 @@ class MyHomePageState extends State<MyHomePage> {
             ),
           ),
 
-          backgroundColor: Color.fromRGBO(96, 71, 102, 1),
+          backgroundColor: const Color.fromRGBO(96, 71, 102, 1),
           // bottom: PreferredSize(
           //   preferredSize: Size.fromHeight(0.0),
           //   child: Image.asset('images/title.png', fit: BoxFit.fitHeight),
@@ -136,14 +125,6 @@ class MyHomePageState extends State<MyHomePage> {
                 //   ],
                 // ),
                 AnimatedButton(
-                  child: Text(
-                    'Animals',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
                   color: const Color.fromARGB(255, 96, 71, 102),
                   onPressed: () {
                     // Navigator.push(
@@ -154,10 +135,26 @@ class MyHomePageState extends State<MyHomePage> {
                   enabled: true,
                   shadowDegree: ShadowDegree.light,
                   height: 45,
+                  child: const Text(
+                    'Animals',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 AnimatedButton(
-                  child: Text(
+                  color: const Color.fromARGB(255, 96, 71, 102),
+                  onPressed: () {
+                    // Navigator.of(context).push(
+                    // MaterialPageRoute(builder: (context) => AnotherPage()));
+                  },
+                  enabled: true,
+                  shadowDegree: ShadowDegree.light,
+                  height: 45,
+                  child: const Text(
                     'History',
                     style: TextStyle(
                       fontSize: 16,
@@ -165,6 +162,9 @@ class MyHomePageState extends State<MyHomePage> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
+                ),
+                const SizedBox(height: 10),
+                AnimatedButton(
                   color: const Color.fromARGB(255, 96, 71, 102),
                   onPressed: () {
                     // Navigator.of(context).push(
@@ -173,10 +173,7 @@ class MyHomePageState extends State<MyHomePage> {
                   enabled: true,
                   shadowDegree: ShadowDegree.light,
                   height: 45,
-                ),
-                SizedBox(height: 10),
-                AnimatedButton(
-                  child: Text(
+                  child: const Text(
                     'People',
                     style: TextStyle(
                       fontSize: 16,
@@ -184,6 +181,9 @@ class MyHomePageState extends State<MyHomePage> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
+                ),
+                const SizedBox(height: 10),
+                AnimatedButton(
                   color: const Color.fromARGB(255, 96, 71, 102),
                   onPressed: () {
                     // Navigator.of(context).push(
@@ -192,10 +192,7 @@ class MyHomePageState extends State<MyHomePage> {
                   enabled: true,
                   shadowDegree: ShadowDegree.light,
                   height: 45,
-                ),
-                const SizedBox(height: 10),
-                AnimatedButton(
-                  child: Text(
+                  child: const Text(
                     'Place',
                     style: TextStyle(
                       fontSize: 16,
@@ -203,14 +200,6 @@ class MyHomePageState extends State<MyHomePage> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  color: const Color.fromARGB(255, 96, 71, 102),
-                  onPressed: () {
-                    // Navigator.of(context).push(
-                    // MaterialPageRoute(builder: (context) => AnotherPage()));
-                  },
-                  enabled: true,
-                  shadowDegree: ShadowDegree.light,
-                  height: 45,
                 ),
               ]),
         ),
@@ -231,7 +220,7 @@ class MyHomePageState extends State<MyHomePage> {
                     bottom: 64.0,
                   ),
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.black26,
                     shape: BoxShape.circle,
                   ),
@@ -247,8 +236,8 @@ class MyHomePageState extends State<MyHomePage> {
                           builder: (context) => const FlashCard()),
                     );
                   },
-                  leading: Icon(Icons.credit_card),
-                  title: Text('Flashcard'),
+                  leading: const Icon(Icons.credit_card),
+                  title: const Text('Flashcard'),
                 ),
                 ListTile(
                   onTap: () {
@@ -257,22 +246,22 @@ class MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(builder: (context) => const QuizPage()),
                     );
                   },
-                  leading: Icon(Icons.quiz_rounded),
-                  title: Text('Quiz'),
+                  leading: const Icon(Icons.quiz_rounded),
+                  title: const Text('Quiz'),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(Icons.favorite),
-                  title: Text('Favourites'),
+                  leading: const Icon(Icons.favorite),
+                  title: const Text('Favourites'),
                 ),
                 ListTile(
                   onTap: () {},
-                  leading: Icon(Icons.settings),
-                  title: Text('Settings'),
+                  leading: const Icon(Icons.settings),
+                  title: const Text('Settings'),
                 ),
-                Spacer(),
+                const Spacer(),
                 DefaultTextStyle(
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12,
                     color: Colors.white54,
                   ),
@@ -280,7 +269,7 @@ class MyHomePageState extends State<MyHomePage> {
                     margin: const EdgeInsets.symmetric(
                       vertical: 16.0,
                     ),
-                    child: Text('Terms of Service | Privacy Policy'),
+                    child: const Text('Terms of Service | Privacy Policy'),
                   ),
                 ),
               ],

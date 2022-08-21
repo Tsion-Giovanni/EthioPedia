@@ -73,7 +73,7 @@ class QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 96, 71, 102),
+      color: const Color.fromARGB(255, 96, 71, 102),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,

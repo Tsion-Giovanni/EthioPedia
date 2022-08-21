@@ -27,7 +27,7 @@ class FlashCardState extends State<FlashCard> {
         backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
             centerTitle: true,
-            title: Text("Flashcards App", style: TextStyle(fontSize: 30)),
+            title: const Text("Flashcards App", style: TextStyle(fontSize: 30)),
             backgroundColor: mainColor,
             toolbarHeight: 80,
             elevation: 5,
@@ -39,17 +39,17 @@ class FlashCardState extends State<FlashCard> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
               Text("Question $value of 10 Completed", style: otherTextStyle),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: LinearProgressIndicator(
                   backgroundColor: Colors.white,
-                  valueColor: AlwaysStoppedAnimation(Colors.pinkAccent),
+                  valueColor: const AlwaysStoppedAnimation(Colors.pinkAccent),
                   minHeight: 5,
                   value: _initial,
                 ),
               ),
-              SizedBox(height: 25),
+              const SizedBox(height: 25),
               SizedBox(
                   width: 300,
                   height: 300,
@@ -59,8 +59,8 @@ class FlashCardState extends State<FlashCard> {
                           text: quesAnsList[_currentIndexNumber].question),
                       back: ReusableCard(
                           text: quesAnsList[_currentIndexNumber].answer))),
-              Text("Tab to see Answer", style: otherTextStyle),
-              SizedBox(height: 20),
+              const Text("Tab to see Answer", style: otherTextStyle),
+              const SizedBox(height: 20),
               Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
@@ -69,26 +69,26 @@ class FlashCardState extends State<FlashCard> {
                           showPreviousCard();
                           updateToPrev();
                         },
-                        icon: Icon(FontAwesomeIcons.handPointLeft, size: 30),
-                        label: Text(""),
+                        icon: const Icon(FontAwesomeIcons.handPointLeft, size: 30),
+                        label: const Text(""),
                         style: ElevatedButton.styleFrom(
                             primary: mainColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                                 right: 20, left: 25, top: 15, bottom: 15))),
                     ElevatedButton.icon(
                         onPressed: () {
                           showNextCard();
                           updateToNext();
                         },
-                        icon: Icon(FontAwesomeIcons.handPointRight, size: 30),
-                        label: Text(""),
+                        icon: const Icon(FontAwesomeIcons.handPointRight, size: 30),
+                        label: const Text(""),
                         style: ElevatedButton.styleFrom(
                             primary: mainColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)),
-                            padding: EdgeInsets.only(
+                            padding: const EdgeInsets.only(
                                 right: 20, left: 25, top: 15, bottom: 15)))
                   ])
             ])));

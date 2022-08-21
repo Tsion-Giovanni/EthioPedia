@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:final_trial/main.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:final_trial/screens/home_screen.dart';
 
@@ -72,8 +71,8 @@ class IntroScreenCustomConfigState extends State<IntroScreenCustomConfig> {
           top: 40.0,
           bottom: 50.0,
         ),
-        colorBegin: Color.fromARGB(255, 96, 71, 102),
-        colorEnd: Color.fromARGB(255, 96, 71, 102),
+        colorBegin: const Color.fromARGB(255, 96, 71, 102),
+        colorEnd: const Color.fromARGB(255, 96, 71, 102),
         directionColorBegin: Alignment.topRight,
         directionColorEnd: Alignment.bottomLeft,
       ),
